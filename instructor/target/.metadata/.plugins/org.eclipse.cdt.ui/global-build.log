@@ -1,0 +1,4 @@
+11:48:20 **** Clean-only build of configuration Debug for project 001HelloWorld ****
+make -j4 clean 
+rm -rf *
+ 
