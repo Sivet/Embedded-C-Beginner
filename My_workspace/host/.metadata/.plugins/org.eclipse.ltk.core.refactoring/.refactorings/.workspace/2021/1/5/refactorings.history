@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;003IfStatements&apos; to &apos;003Statements&apos;" description="Rename resource &apos;003IfStatements&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/003IfStatements" name="003Statements" stamp="1611654099883" updateReferences="true"/>
-</session>
