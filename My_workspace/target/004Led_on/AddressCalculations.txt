@@ -1,0 +1,23 @@
+Address of the Clock control register (RCC_AHB1ENR) <-- From Datasheet
+Base address 0x4002 3800 - 0x4002 3BFF <-- From Reference Manual (Memory Map)
+Offset 0x30 <-- From Reference Manual (RCC AHB1 Peripheral clock register)
+Reset Value 0x0010 0000 <-- From Reference Manual (RCC AHB1 Peripheral clock register)
+Bit 3 enables clock for GPIOD <-- From Reference Manual (RCC AHB1 Peripheral clock register)
+Address = 0x4002 3800 + 0x30 = 0x4002 3830
+
+Address of the GPIOD mode register (used to control mode)
+Base address 0x4002 0C00 - 0x4002 0FFF <-- From Reference Manual (Memory Map)
+Offset 0x00 <-- From Reference Manual (GPIO port Mode register)
+Reset Value 0x0000 0000 <-- From Reference Manual (GPIO port Mode register)
+Adress = 0x4002 0C00 + 0x00 = 0x4002 0C00
+2 Bits dedicated per pin (four modes per pin)
+Pin 12 is bit 24 and 25
+
+Address of the GPIO output data register (used to write)
+Base address 0x4002 0C00 - 0x4002 0FFF <-- From Reference Manual (Memory Map)
+Address offset: 0x14 <-- From Reference Manual (GPIO port Output data register)
+Reset value: 0x0000 0000 <-- From Reference Manual (GPIO port Output data register)
+Adress = 0x4002 0C00 + 0x14 = 0x4002 0C14
+1 Bit dedicated per pin 
+Set the 12'th bit to 1
+
