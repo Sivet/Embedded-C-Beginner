@@ -112,3 +112,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+My_workspace/host/000TestProject/.settings/org.eclipse.cdt.managedbuilder.core.prefs
+
+*.prefs

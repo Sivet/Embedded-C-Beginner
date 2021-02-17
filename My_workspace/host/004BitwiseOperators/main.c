@@ -33,6 +33,8 @@ int main(){
 	//exerciseThree();
 	//exerciseFour();
 	exerciseFive();
+	while(getchar() != '\n'){}
+	getchar();
 }
 
 void exerciseOne(){
@@ -78,38 +80,42 @@ void exerciseThree(){
 	//Set 4th and 7th bit to 1
 
 	int32_t num;
-	int32_t mask = 0b01001000;
+	//int32_t mask = 0b10010000;
 	printf("Enter a number: ");
 	scanf("%d", &num);
 	printf("You entered "BYTE_TO_BINARY_PATTERN" (%d)\n", BYTE_TO_BINARY(num), num);
 
-	num = mask | num; //Use the mask value with the Or bit operator to set the bits we set as 1 in the mask
+	//num = mask | num; //Use the mask value with the Or bit operator to set the bits we set as 1 in the mask
+	num |= 0b1001 << 4; //This makes a mask and applies it to num
 	printf("Output is:  "BYTE_TO_BINARY_PATTERN" (%d)\n", BYTE_TO_BINARY(num),num);
 }
 void exerciseFour(){
 	//Clearing of bits
 	//Clear the 4th, 5th and 6th bit position
 	int32_t num;
-	int32_t mask = 0b11000111;
+	//int32_t mask = 0b11000111; Not needed to calculate mask directly
 	printf("Enter a number: ");
 	scanf("%d", &num);
 	printf("You entered "BYTE_TO_BINARY_PATTERN" (%d)\n", BYTE_TO_BINARY(num), num);
 
-	num = mask & num; //Use the mask value with the And bit operator to clear the bits we set as 0 in the mask
+	//num = mask & num; //Use the mask value with the And bit operator to clear the bits we set as 0 in the mask
+	num &= ~(0b0111 << 4); //This makes a mask and applies it to num
+
 	printf("Output is:  "BYTE_TO_BINARY_PATTERN" (%d)\n", BYTE_TO_BINARY(num), num);
 }
 void exerciseFive(){
 	//Toggling of bits
 	//Toggle a bit using the XOR operator
 	int32_t num;
-	int32_t mask = 0b00000001; //Gonna toggle the lsb
+	//int32_t mask = 0b00000001; //Gonna toggle the lsb
 	printf("Enter a number: ");
 	scanf("%d", &num);
 	printf("You entered "BYTE_TO_BINARY_PATTERN" (%d)\n", BYTE_TO_BINARY(num), num);
 
 	for(int8_t i = 0; i<5; i++){
 		printf("Toggling the bit using the mask:\n");
-		num = mask ^ num; //Use the mask value with the XOR bit operator to toggle the bits we set as 1 in the mask
+		//num = mask ^ num; //Use the mask value with the XOR bit operator to toggle the bits we set as 1 in the mask
+		num ^= 0b01; //This makes a mask and applies it to num
 		printf("Output is:  "BYTE_TO_BINARY_PATTERN" (%d)\n", BYTE_TO_BINARY(num), num);
 	}
 

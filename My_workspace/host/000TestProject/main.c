@@ -13,7 +13,6 @@ int main(void){
 
 	printf("Press 'Enter' to exit this application\n");
 
-	getchar();
 
 	return 0;
 }

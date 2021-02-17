@@ -32,18 +32,21 @@ int main(void)
 
 	//Enable Clock for GPOID peripheral in the AHB1ENR
 	//Setting bit position 3 to 1
-	*pClkCtrlReg = *pClkCtrlReg | 0x08;
+	//*pClkCtrlReg = *pClkCtrlReg | 0x08; //Old way, calculating the mask
+	*pClkCtrlReg |= 0x01 << 3; //creating the mask by shifting a single bit into position, no calculation required
 
 	//Configure the mode of the IO pin as output
 	//Clearing the 24th and 25th bit position
-	*pPortDModeReg = *pPortDModeReg & 0xFCFFFFFF;
+	//*pPortDModeReg = *pPortDModeReg & 0xFCFFFFFF; //Old way, calculating the mask
+	*pPortDModeReg &= ~(0x3 << 24); //creating the mask by shifting a single bit into position, no calculation required
 	//Setting 24th bit position to 1
-	*pPortDModeReg = *pPortDModeReg | 0x01000000;
+	//*pPortDModeReg = *pPortDModeReg | 0x01000000; //Old way, calculating the mask
+	*pPortDModeReg |= 0x01 << 24; //creating the mask by shifting a single bit into position, no calculation required
 
 	//Write to GPIO data register
 	//Setting 12th bit position to 1
-	*pPortDOutReg = *pPortDOutReg | 0x01000;
-
+	//*pPortDOutReg = *pPortDOutReg | 0x01000; //Old way, calculating the mask
+	*pPortDOutReg |= 0x01 <<  12; //creating the mask by shifting a single bit into position, no calculation required
     /* Loop forever */
 	for(;;);
 }

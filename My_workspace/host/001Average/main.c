@@ -14,11 +14,10 @@ int main(){
 
 	//printf("Average: %f\n", simpleVersion());
 	//printf("Average: %f\n", allAtOnce());
-	//exercise();
+	exercise();
 
-	/*while(getchar() != '\n'){
-	}
-	getchar();*/
+	while(getchar() != '\n'){}
+	getchar();
 }
 
 float simpleVersion(){
