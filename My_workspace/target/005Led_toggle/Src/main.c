@@ -31,22 +31,26 @@ int main(void)
 	uint32_t *pPortDOutReg = (uint32_t*)0x40020C14;
 
 	//Enable Clock for GPOID peripheral in the AHB1ENR
-	//Setting bit position 3 to 1
-	//*pClkCtrlReg = *pClkCtrlReg | 0x08; //Old way, calculating the mask
-	*pClkCtrlReg |= 0x01 << 3; //creating the mask by shifting a single bit into position, no calculation required
+	*pClkCtrlReg |= 0x01 << 3;
 
 	//Configure the mode of the IO pin as output
-	//Clearing the 24th and 25th bit position
-	//*pPortDModeReg = *pPortDModeReg & 0xFCFFFFFF; //Old way, calculating the mask
-	*pPortDModeReg &= ~(0x3 << 24); //creating the mask by shifting two bit into position, no calculation required
-	//Setting 24th bit position to 1
-	//*pPortDModeReg = *pPortDModeReg | 0x01000000; //Old way, calculating the mask
-	*pPortDModeReg |= 0x01 << 24; //creating the mask by shifting a single bit into position, no calculation required
+	*pPortDModeReg &= ~(0x03 << 24);
+	*pPortDModeReg |= 0x01 << 24;
 
-	//Turn on Led by writing to GPIO data register
-	//Setting 12th bit position to 1
-	//*pPortDOutReg = *pPortDOutReg | 0x01000; //Old way, calculating the mask
-	*pPortDOutReg |= 0x01 <<  12; //creating the mask by shifting a single bit into position, no calculation required
+	while(1){
+		//Turn on Led by writing to GPIO data register
+		*pPortDOutReg |= 1 << 12;
+
+		//Introduce observable delay
+		for(uint32_t i = 0; i < 300000; i++);
+
+		//Turn off the led
+		*pPortDOutReg &= ~(1 << 12);
+
+		//Introduce observable delay
+		for(uint32_t j = 0; j < 300000; j++);
+	}
+
     /* Loop forever */
-	for(;;);
+	//for(;;);
 }
