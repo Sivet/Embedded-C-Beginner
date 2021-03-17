@@ -32,6 +32,7 @@ int main() {
 			even++;
 		}
 	}
+	//Same but as while loop
 	/*while(startNumber <= endNumber){
 	 if(!(startNumber % 2)){
 	 printf("%4d\t", startNumber);
