@@ -48,7 +48,6 @@ int main() {
 
 void waitForUser() {
 	printf("Press Enter to exit the application");
-	while (getchar() != '\n') {
-	}
+	while (getchar() != '\n') {}
 	getchar();
 }
