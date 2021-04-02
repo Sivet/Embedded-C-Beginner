@@ -6,6 +6,7 @@
 
 int main(void) {
 	//Declare pointers for calculated addresses
+	//Use volatile keyword on memory-mapped peripherals to ensure optimisation level doesn't affect them
 	uint32_t volatile *pClkCtrlReg = (uint32_t*) 0x40023830;
 	uint32_t volatile *pPortDModeReg = (uint32_t*) 0x40020C00;
 	uint32_t volatile *pPortDOutReg = (uint32_t*) 0x40020C14;
