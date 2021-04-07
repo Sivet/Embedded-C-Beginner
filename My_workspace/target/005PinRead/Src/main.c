@@ -7,12 +7,12 @@
 int main(void) {
 	//Declare pointers for calculated addresses
 	//Use volatile keyword on memory-mapped peripherals to ensure optimisation level doesn't affect them
-	uint32_t volatile *pClkCtrlReg = (uint32_t*) 0x40023830;
-	uint32_t volatile *pPortDModeReg = (uint32_t*) 0x40020C00;
-	uint32_t volatile *pPortDOutReg = (uint32_t*) 0x40020C14;
+	uint32_t volatile *const pClkCtrlReg = (uint32_t*) 0x40023830;
+	uint32_t volatile *const pPortDModeReg = (uint32_t*) 0x40020C00;
+	uint32_t volatile *const pPortDOutReg = (uint32_t*) 0x40020C14;
 
-	uint32_t volatile *pPortAModeReg = (uint32_t*) 0x40020000;
-	uint32_t volatile *pPortAInReg = (uint32_t*) 0x40020010;
+	uint32_t volatile *const pPortAModeReg = (uint32_t*) 0x40020000;
+	uint32_t const volatile *const pPortAInReg = (uint32_t*) 0x40020010; //Const volatile to safeguard from programmer. Hardware can still chang it
 
 	//Enable Clock for GPOID and GPOA peripherals in the AHB1ENR
 	*pClkCtrlReg |= 0x01 << 3; //Setting bit position 3 to 1
