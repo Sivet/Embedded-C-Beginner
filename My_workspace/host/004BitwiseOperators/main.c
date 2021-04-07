@@ -43,7 +43,7 @@ void exerciseOne(){
 
 	printf("Enter two numbers: ");
 	scanf("%d %d", &num1, &num2);
-	printf("You entered "BYTE_TO_BINARY_PATTERN" (%d)\n        and "BYTE_TO_BINARY_PATTERN" (%d)\n", BYTE_TO_BINARY(num1), num1, BYTE_TO_BINARY(num2), num2);
+	printf("You entered "BYTE_TO_BINARY_PATTERN" (%d)\n and "BYTE_TO_BINARY_PATTERN" (%d)\n", BYTE_TO_BINARY(num1), num1, BYTE_TO_BINARY(num2), num2);
 
 	int32_t bitwiseAnd = num1 & num2;
 	printf("Bitwise &: "BYTE_TO_BINARY_PATTERN" (%d)\n",
