@@ -60,7 +60,7 @@ void decodePacket(uint32_t rawPacket){
 
 	printf("Crc:		%#x\n",packet.crc);
 	printf("Status:		%#x\n",packet.status);
-	printf("payload:	%#x\n",packet.payload);
+	printf("Payload:	%#x\n",packet.payload);
 	printf("Bat:		%#x\n",packet.bat);
 	printf("Sensor:		%#x\n",packet.sensor);
 	printf("LongAddr:	%#x\n",packet.longAddr);
