@@ -22,6 +22,17 @@ typedef struct{
 	uint32_t addrMode:1;
 }Packet;
 
+//Example of mix bitmap with full variables
+/*
+typedef struct{
+	uint32_t speed	:7; //Max 400km/H (7bits)
+	uint32_t weight	:13;//Max 500kg (13bits)
+	uint32_t colour	:7; //An Ascii code (7bits)
+	//27 bits used, 5bits left. Is not space enough for price
+	uint32_t price; 	//Is its own uint32
+}carDetails;
+*///takes 4+4 = 8 bytes
+
 void decodePacket(uint32_t rawPacket);
 void waitForUser();
 
