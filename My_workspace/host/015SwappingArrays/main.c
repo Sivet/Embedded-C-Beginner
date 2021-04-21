@@ -15,7 +15,7 @@ void waitForUser();
 int main() {
 	//Asking user for values, or something.
 	uint8_t firstArray[5] = { 0xAA, 0xBB, 0xCC, 0xDD, 0xEE };
-	uint8_t otherArray[5] = { 0x11, 0x22, 0x33, 0x44, 0x55 };
+	uint8_t otherArray[6] = { 0x11, 0x22, 0x33, 0x44, 0x55, 0x66 };
 
 	uint32_t nItems1 = sizeof(firstArray) / sizeof(uint8_t);
 	uint32_t nItems2 = sizeof(otherArray) / sizeof(uint8_t);
@@ -38,14 +38,16 @@ void displayArray(uint8_t *pArray, uint8_t nItems) {
 	printf("\n");
 }
 
+//If one array is larger than the other the extra elements will stay in that array
 void swapArrays(uint8_t *firstArray, uint8_t *otherArray, uint32_t nItems1, uint32_t nItems2) {
 	//In C an array is not a single "thing" you can swap. You will need to swap it element-by-element.
 	//So no fun pointer action
-	uint8_t tmp;
-	for (uint32_t i = 0; (i < nItems1) | (i < nItems2); i++) {
-		tmp = firstArray[i];
+	uint32_t len = nItems1 < nItems2 ? nItems1 : nItems2;
+
+	for(uint32_t i = 0; i < len; i++){
+		int32_t temp = firstArray[i];
 		firstArray[i] = otherArray[i];
-		otherArray[i] = tmp;
+		otherArray[i] = temp;
 	}
 }
 
